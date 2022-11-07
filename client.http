@@ -1,0 +1,14 @@
+GET http://localhost:3355/users
+
+###
+
+POST  http://localhost:3355/users
+Content-Type: application/json
+
+{
+  "name": "John",
+  "email": "john@domain.com",
+  "password": "password",
+  "group_id": "554c9c3c-c620-4e00-b14a-64768ae73351",
+  "nickname": "jojo"
+}
