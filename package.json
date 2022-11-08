@@ -8,8 +8,11 @@
     "email": "maximiano@tecnologiageo.com.br"
   },
   "scripts": {
+    "preinstall": "npm i pm2",
+    "start:express": "pm2 start ./dist/src/main/express/server.js --name 'api_story_xpto'",
     "dev:express": "tsnd ./src/main/http/express/server.ts",
     "prepare": "husky install",
+    "build": "tsc",
     "test": "jest --passWithNoTests --watch",
     "test:staged": "jest --passWithNoTests",
     "start:staged": "husky add .husky/pre-commit \"npx lint-staged\"",
