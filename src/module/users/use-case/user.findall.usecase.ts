@@ -1,8 +1,8 @@
 import { User } from '../entities/User'
-import { UserFindRepository } from '../protocols/repository/user.findall.repository'
+import { UserFindAllRepository } from '../protocols/repository/user.findall.repository'
 
-export class UserFindUseCase {
-  constructor (private readonly userRepository: UserFindRepository) { }
+export class UserFindAllUseCase {
+  constructor (private readonly userRepository: UserFindAllRepository) { }
 
   async execute (): Promise<User[]> {
     return await this.userRepository.findAll()

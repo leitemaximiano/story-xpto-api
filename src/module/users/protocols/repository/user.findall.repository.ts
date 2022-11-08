@@ -1,5 +1,5 @@
 import { User } from '../../entities/User'
 
-export interface UserFindRepository {
+export interface UserFindAllRepository {
   findAll: () => Promise<User[]>
 }

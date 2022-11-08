@@ -2,15 +2,16 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Request, Response } from 'express'
 import { User } from '../../../../module/users/entities/User'
-import { UserFindController } from '../../../../module/users/infra/controller/user.findall.controller'
 import { UserCreateDevelopersFacade } from '../../../../module/users/infra/facade/user.create.developer.facade'
 import { UserResponseFactory } from '../../../factory/user.create.response.factory'
+import { UserFindAllFacade } from '../../../../module/users/infra/facade/user.findall.developer.facade'
 
 export class UserController {
   async findAll (request: Request, response: Response) {
-    const userFindController = new UserFindController()
-    const responseUser = await userFindController.handle()
-    return response.json(responseUser)
+    const userFindAllFacade = new UserFindAllFacade()
+    const users = await userFindAllFacade.run()
+    const httpResponse = UserResponseFactory(users, users.length)
+    return response.json(httpResponse)
   }
 
   async create (request: Request, response: Response) {

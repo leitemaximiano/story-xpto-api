@@ -1,11 +1,10 @@
 import { User } from '../../entities/User'
-import { UserFindUseCase } from '../../use-case/user.findall.usecase'
-import { UserMemoryRepository } from '../repositories/user.memory.repository'
+import { UserFindAllUseCase } from '../../use-case/user.findall.usecase'
 
-export class UserFindController {
+export class UserFindAllController {
+  constructor (private readonly userFindAllUseCase: UserFindAllUseCase) {}
+
   async handle (): Promise<User[]> {
-    const userRepository = new UserMemoryRepository()
-    const userFindUseCase = new UserFindUseCase(userRepository)
-    return await userFindUseCase.execute()
+    return await this.userFindAllUseCase.execute()
   }
 }
