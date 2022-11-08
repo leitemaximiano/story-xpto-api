@@ -9,8 +9,6 @@ const log = debug('api:user.create.factory')
 
 export function UserResponseFactory (user: any, countRegistries?: number, currentPage?: number, countPage?: number): HttpResponse<User> {
   const isUserArray: Boolean = Object.prototype.toString.call(user).includes('Object]')
-  console.log(user)
-  // log(`value of var isUserArray is '${isUserArray}'`)
   const links = isUserArray
     ? [
         [`/users/${user.id ?? ''}`, 'GET', `get user ${user.name}`],
